@@ -13,4 +13,7 @@ class PagesController < ApplicationController
     def welcome
         @name = params[:name]
     end
+    def salut
+        
+    end
 end

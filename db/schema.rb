@@ -10,11 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_05_221245) do
+ActiveRecord::Schema.define(version: 2022_05_12_090743) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "zipcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.string "commentable_type"
+    t.integer "commentable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,6 +70,7 @@ ActiveRecord::Schema.define(version: 2022_05_05_221245) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "city_id"
+    t.string "password_digest"
     t.index ["city_id"], name: "index_users_on_city_id"
   end
 

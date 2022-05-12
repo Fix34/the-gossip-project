@@ -1,0 +1,38 @@
+<h2>Met à jour ton potin !</h2>
+<% if flash[:error] %>
+    <div class="alert alert-danger mt-4" role="alert">
+    <%= flash[:error] %>
+    </div>
+    <% end %>
+    
+    <%= form_for @gossip do |f| %>
+    <div class="form-group">
+    <label>Ton titre</label>
+    <br>
+    <%= f.text_field :title, class:'form-control' %>
+    </div>
+<br>
+    <div class="form-group">
+    <label>Balance ton potin !</label>
+    <%= f.text_area :content, class:'form-control' %>
+    </div>
+    <br>
+    <div class="form-group">
+    <button type="submit">Modifie ton potin</button>
+    </div>
+    <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bienvenue</title>
-</head>
-<body>
-  
+<h1>Tous les potins de <%= @city.name%> : </h1>
 
 <br>
-<br><p>Si tu veux lacher des potins <a> <%= link_to "c'est par ici !", new_gossip_path %> </a> </p>
+<br>
+<br>
 
-<br>
-<h1>Tous les Gossips :</h1>
-<br>
 <section>
 <div class="card-deck">
-<div class="row">
 <%Gossip.all.each do |gossip|%>
-
-<div class="col-sm-3 mb-4">
+<%if @user_id_array.include?(gossip.user_id)%>
+<div class="col-sm-4 mb-3">
 <div class="card">
   <div class="card-header">
     Gossip n°<%=gossip.id%>
@@ -31,18 +19,13 @@
       <footer class="blockquote-footer">
       <div class="row justify-content-between align-self-center mx-3">
         <p><%=User.find(gossip.user_id).first_name%> <%=User.find(gossip.user_id).last_name%></p>
-       <a  class="btn btn-info" <%= link_to "Voir plus", gossip_path(gossip.id)%> </a>
-      </div>
+       </div>
       </footer>
     </blockquote>
   </div>
 </div>
 </div>
-</div>
+<%end%>
 <%end%>
 </div>
 </section>
- 
-</body>
-</html>
-  
